@@ -1,10 +1,14 @@
-import { UserButton } from "@clerk/nextjs";
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { useNewAccount } from "@/features/accounts/hooks/use-new-account";
 
 export default function Home() {
+  const { onOpen } = useNewAccount();
+
   return (
     <div>
-      <UserButton afterSignOutUrl="/" />
-      <p>This is an protected route.</p>
+      <Button onClick={onOpen}>Open New Account</Button>
     </div>
   );
 }
